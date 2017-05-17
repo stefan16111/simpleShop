@@ -20,32 +20,82 @@
                 box-shadow: 0 0 20px #888;
                 background-color: #fff;
             }
+            .simpleCart_items img{
+                max-height: 64px;
+                max-width: 64px;
+            }
+            .item-quantity, .item-increment, .item-decrement {
+                text-align: center;
+            }
         </style>
     </head>
     <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#">simpleShop</a>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="#" class="koszyk" data-toggle="modal" data-target="#myModal">Koszyk
+                                            (<span class="simpleCart_quantity"></span>)
+                                        </a></li>
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                </div>
+            </div>
+        </div>   
+        <!--okienko koszyk-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Koszyk <span class="showIfEmpty">jest pusty</span></h4>
+                    </div>
+                    <div class="hideIfEmpty">
+                        <div class="modal-body">
+                            <div class="simpleCart_items"></div>
 
-        <div class="simpleCart_items"></div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Łącznie</th>
+                                        <th>Koszty przesyłki</th>
+                                        <th>Do zapłaty</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><div class="simpleCart_total"></div></td>
+                                        <td><div class="simpleCart_shipping"></div></td>
+                                        <td><div class="simpleCart_grandTotal"></div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Łącznie</th>
-                    <th>Koszty przesyłki</th>
-                    <th>Do zapłaty</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-      <td><div class="simpleCart_total"></div></td>
-      <td><div class="simpleCart_shipping"></div></td>
-      <td><div class="simpleCart_grandTotal"></div></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <a href="javascript:;" class="simpleCart_checkout">Złóż zamówienie</a> |
-
-        <a href="javascript:;" class="simpleCart_empty">Opróżnij koszyk</a>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="javascript:;" class="simpleCart_empty btn btn-default">Opróżnij koszyk</a>                 
+                            <a href="javascript:;" class="simpleCart_checkout btn btn-primary">Złóż zamówienie</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="container">
             <div class="row">
@@ -55,7 +105,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <h4 class="item_name"> Apple iPhone </h4>
-                                <img src="img/Apple_iPhone.png" alt="">
+                                <img class="item_thumb" src="img/Apple_iPhone.png" alt="">
                             </div>
                         </div>
                         <div class="row">
@@ -80,7 +130,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <h4 class="item_name"> Eten G500 </h4>
-                                <img src="img/Eten_G500.png" alt="">
+                                <img class="item_thumb" src="img/Eten_G500.png" alt="">
                             </div>
                         </div>
                         <div class="row">
@@ -105,7 +155,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <h4 class="item_name"> HP Ipaq 111 </h4>
-                                <img src="img/HP_Ipaq_111.png" alt="">
+                                <img class="item_thumb" src="img/HP_Ipaq_111.png" alt="">
                             </div>
                         </div>
                         <div class="row">
@@ -133,7 +183,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <h4 class="item_name"> HP Ipaq 211 </h4>
-                                <img src="img/HP_Ipaq_211.png" alt="">
+                                <img class="item_thumb" src="img/HP_Ipaq_211.png" alt="">
                             </div>
                         </div>
                         <div class="row">
@@ -158,7 +208,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <h4 class="item_name"> HP iPaq hx2495 </h4>
-                                <img src="img/HP_iPaq_hx2495.png" alt="">
+                                <img class="item_thumb" src="img/HP_iPaq_hx2495.png" alt="">
                             </div>
                         </div>
                         <div class="row">
@@ -183,7 +233,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <h4 class="item_name"> HTC Apache </h4>
-                                <img src="img/HTC_Apache.png" alt="">
+                                <img class="item_thumb" src="img/HTC_Apache.png" alt="">
                             </div>
                         </div>
                         <div class="row">
@@ -220,12 +270,13 @@
                 // see the cart columns documentation
                 cartColumns: [
                     {attr: "name", label: "Produkt"},
+                    {view: 'image', attr: 'thumb', label: false},
                     {view: "currency", attr: "price", label: "Cena"},
-                    {view: "decrement", label: false},
+                    {view: "decrement", label: false, text: '<span class="glyphicon glyphicon-minus"></span>'},
                     {attr: "quantity", label: "Ilość"},
-                    {view: "increment", label: false},
+                    {view: "increment", label: false, text: '<span class="glyphicon glyphicon-minus"></span>'},
                     {view: "currency", attr: "total", label: "Razem"},
-                    {view: "remove", text: "Usuń", label: false}
+                    {view: "remove", label: false, text: '<span class="glyphicon glyphicon-remove"></span>'}
                 ],
                 // "div" or "table" - builds the cart as a 
                 // table or collection of divs
@@ -251,7 +302,7 @@
                 // custom function to add shipping cost
                 shippingCustom: null,
                 // flat rate shipping option
-                shippingFlatRate: 0,
+                shippingFlatRate: 10,
                 // added shipping based on this value 
                 // multiplied by the cart quantity
                 shippingQuantityRate: 0,
@@ -274,6 +325,18 @@
                 checkoutFail: null,
                 beforeCheckout: null,
                 beforeRemove: null
+            });
+            simpleCart.bind("afterAdd", function () {
+                $(".koszyk").fadeOut(500).fadeIn(500);
+            });
+            simpleCart.bind('update', function () {
+                if (simpleCart.quantity() == 0) {
+                    $(".hideIfEmpty").hide();
+                    $(".showIfEmpty").show();
+                } else {
+                    $(".hideIfEmpty").show();
+                    $(".showIfEmpty").hide();
+                }
             });
         </script>
     </body>
