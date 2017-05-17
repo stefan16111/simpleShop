@@ -7,13 +7,14 @@
         <title>Simple shop</title>
 
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
         <style>
-            .item {
+            .simpleCart_shelfItem {
                 padding: 20px;
                 transition: all .4s;
                 -webkit-transition: all .4s;
             }
-            .item:hover {
+            .simpleCart_shelfItem:hover {
                 transform: scale(1.05);
                 -ms-transform: scale(1.05);
                 -webkit-transform: scale(1.05);
@@ -27,11 +28,15 @@
             .item-quantity, .item-increment, .item-decrement {
                 text-align: center;
             }
+            .mix {
+                display: none;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="row">
+                <!--navbar-->
                 <div class="col-sm-12">
                     <nav class="navbar navbar-default">
                         <div class="container-fluid">
@@ -55,9 +60,25 @@
                             </div><!-- /.navbar-collapse -->
                         </div><!-- /.container-fluid -->
                     </nav>
+
+                    <!--sortowanie-->
+                    <label>Producent:</label>
+                    <div class="controls btn-group">
+                        <button class="filter btn btn-default" data-filter="all">All</button>
+                        <button class="filter btn btn-default" data-filter=".Apple">Apple</button>
+                        <button class="filter btn btn-default" data-filter=".HP">HP</button>
+                        <button class="filter btn btn-default" data-filter=".HTC">HTC</button>
+                        <button class="filter btn btn-default" data-filter=".ETEN">ETEN</button>
+                    </div>
+                    <label>Cena:</label>
+                    <div class="controls btn-group">
+                        <button class="sort btn btn-default" data-sort="price:asc">Rosnąco</button>
+                        <button class="sort btn btn-default" data-sort="price:desc">Malejąco</button>
+                    </div>
+
                 </div>
-            </div>
-        </div>   
+            </div> 
+        </div>
         <!--okienko koszyk-->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -96,11 +117,13 @@
                 </div>
             </div>
         </div>
+        <!--items-->
+        <p>&nbsp;</p>
 
-        <div class="container">
+        <div id="Container" class="container">
             <div class="row">
 
-                <div class="col-md-4 item text-center">
+                <div class="col-md-4 item text-center mix Apple" data-price="1135.99">
                     <div class="simpleCart_shelfItem">
                         <div class="row">
                             <div class="col-xs-12">
@@ -110,7 +133,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <h4 class="item_price">35.99 zł </h4>
+                                <h4 class="item_price">1135.99 zł </h4>
                             </div>
                         </div>
                         <div class="row">
@@ -125,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 item text-center">
+                <div class="col-md-4 item text-center mix ETEN" data-price="80.99">
                     <div class="simpleCart_shelfItem">
                         <div class="row">
                             <div class="col-xs-12">
@@ -135,7 +158,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <h4 class="item_price">35.99 zł </h4>
+                                <h4 class="item_price">80.99 zł </h4>
                             </div>
                         </div>
                         <div class="row">
@@ -150,7 +173,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 item text-center">
+                <div class="col-md-4 item text-center mix HP" data-price="200">
                     <div class="simpleCart_shelfItem">
                         <div class="row">
                             <div class="col-xs-12">
@@ -160,7 +183,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <h4 class="item_price">35.99 zł </h4>
+                                <h4 class="item_price">200.00 zł </h4>
                             </div>
                         </div>
                         <div class="row">
@@ -174,11 +197,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4 item text-center">
+                </div> 
+                <div class="col-md-4 item text-center mix HP" data-price="99.99">
                     <div class="simpleCart_shelfItem">
                         <div class="row">
                             <div class="col-xs-12">
@@ -188,7 +208,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <h4 class="item_price">35.99 zł </h4>
+                                <h4 class="item_price">99.99 zł </h4>
                             </div>
                         </div>
                         <div class="row">
@@ -203,7 +223,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 item text-center">
+                <div class="col-md-4 item text-center mix HP" data-price="599.99">
                     <div class="simpleCart_shelfItem">
                         <div class="row">
                             <div class="col-xs-12">
@@ -213,7 +233,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <h4 class="item_price">35.99 zł </h4>
+                                <h4 class="item_price">599.99 zł </h4>
                             </div>
                         </div>
                         <div class="row">
@@ -228,7 +248,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 item text-center">
+                <div class="col-md-4 item text-center mix HTC" data-price="299.99">
                     <div class="simpleCart_shelfItem">
                         <div class="row">
                             <div class="col-xs-12">
@@ -238,7 +258,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <h4 class="item_price">35.99 zł </h4>
+                                <h4 class="item_price">299.99 zł </h4>
                             </div>
                         </div>
                         <div class="row">
@@ -254,16 +274,13 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
-
-
-
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="js/simpleCart.js"></script>
+        <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js?v=2.1.2"></script>
         <script>
             simpleCart({
                 // array representing the format and columns of the cart,
@@ -337,6 +354,9 @@
                     $(".hideIfEmpty").show();
                     $(".showIfEmpty").hide();
                 }
+            });
+            $(function () {
+                $('#Container').mixItUp();
             });
         </script>
     </body>
